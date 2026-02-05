@@ -1,0 +1,17 @@
+[project]
+name = "pilk-tradejournal"
+version = "0.1.0"
+description = "Trade Journal Helper CLI for quick logging, searching, and stats."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "typer[rich]>=0.10.0",
+    "rich>=13.0.0"
+]
+scripts = {
+    "pilk-journal" = "pilk_tradejournal.cli:app"
+}
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"

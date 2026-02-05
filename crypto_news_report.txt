@@ -1,0 +1,67 @@
+CRYPTO NEWS REPORT - 2026-02-04 10:00:20
+==================================================
+
+Total headlines: 15
+Bullish: 9 | Bearish: 1 | Neutral: 5
+
+TOP BULLISH:
+- [The Block] Ark Invest scoops up more Bitmine, Circle shares as crypto slump continues
+  Score: +4
+
+- [Cointelegraph] Vitalik Buterin tempers vision for ETH L2s, pushes native rollups
+  Score: +1
+
+- [Cointelegraph] Nevada authorities file lawsuit against Coinbase over unlicensed wagering
+  Score: +1
+
+TOP BEARISH:
+- [Cointelegraph] ETH funding rate turns negative, but US macro conditions mute the buy signal
+  Score: +1
+
+
+ALL HEADLINES:
+[Cointelegraph] Vitalik Buterin tempers vision for ETH L2s, pushes native rollups
+Sentiment: bullish | https://cointelegraph.com/news/ethereum-scaling-pivot-l2s-mainnet-vitalik-buterin?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+
+[Cointelegraph] ETH funding rate turns negative, but US macro conditions mute the buy signal
+Sentiment: bearish | https://cointelegraph.com/news/eth-funding-rate-turns-negative-but-us-macro-conditions-mute-the-buy-signal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+
+[Cointelegraph] Nevada authorities file lawsuit against Coinbase over unlicensed wagering
+Sentiment: bullish | https://cointelegraph.com/news/nevada-enforcement-action-coinbase-wagering?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+
+[Cointelegraph] Next Bitcoin accumulation phase may hinge on credit stress timing: Data
+Sentiment: neutral | https://cointelegraph.com/news/next-bitcoin-accumulation-phase-may-hinge-on-credit-stress-timing-data?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+
+[Cointelegraph] Tian Ruixiang plans to acquire up to 15K Bitcoin in equity-linked deal
+Sentiment: bullish | https://cointelegraph.com/news/tian-ruixiang-plans-acquire-15-000-bitcoin-equity-linked-deal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+
+[Decrypt] Alleged Bitcoin Ransom Note Sent to TMZ in Case Involving 'Today' Show Host's Missing Mother
+Sentiment: neutral | https://decrypt.co/356867/alleged-bitcoin-ransom-note-tmz-guthrie-missing-mother
+
+[Decrypt] 'We Need a New Path': Ethereum Founder Vitalik Buterin Rips Up L2-Focused Roadmap
+Sentiment: bullish | https://decrypt.co/356841/we-need-new-path-ethereum-founder-vitalik-buterin-rips-up-l2-focused-roadmap
+
+[Decrypt] French Police Raid X’s Paris Office in Probe of Grok AI and Illegal Content
+Sentiment: neutral | https://decrypt.co/356838/french-police-raid-x-paris-office-probe-grok-ai
+
+[Decrypt] AI Made Sam Altman Feel 'Useless and Sad'—X Users Tried to Make Him Feel Worse
+Sentiment: neutral | https://decrypt.co/356795/ai-made-sam-altman-feel-useless-sad-x-users-tried-make-him-feel-worse
+
+[Decrypt] Crypto Dev Launches Site for AI to Hire Humans
+Sentiment: bullish | https://decrypt.co/356784/crypto-dev-ai-hire-humans
+
+[The Block] Ark Invest scoops up more Bitmine, Circle shares as crypto slump continues
+Sentiment: bullish | https://www.theblock.co/post/388358/ark-invest-more-bitmine-circle?utm_source=rss&utm_medium=rss
+
+[The Block] Aave Labs sunsets Avara ‘umbrella brand’ and Family wallet as it refocuses on DeFi
+Sentiment: neutral | https://www.theblock.co/post/388342/aave-labs-sunsets-avara-umbrella-brand?utm_source=rss&utm_medium=rss
+
+[The Block] Bitcoin tests $73,000, erasing gains since Trump’s election night win
+Sentiment: bullish | https://www.theblock.co/post/388330/bitcoin-tests-73000-erasing-gains-since-trumps-election-night-win?utm_source=rss&utm_medium=rss
+
+[The Block] The Daily: Bitwise CIO on the ‘Leonardo-DiCaprio-in-The-Revenant-style crypto winter,’ Vitalik reconsiders Ethereum’s rollup-centric roadmap, and more
+Sentiment: bullish | https://www.theblock.co/post/388329/the-daily-bitwise-cio-on-the-leonardo-dicaprio-in-the-revenant-style-crypto-winter-vitalik-reconsiders-ethereums-rollup-centric-roadmap-and-more?utm_source=rss&utm_medium=rss
+
+[The Block] Robinhood CEO’s AI startup sponsors former Eclipse founder accused of sexual misconduct
+Sentiment: bullish | https://www.theblock.co/post/388294/robinhood-ceo-ai-startup-sponsors-former-eclipse-founder-accused-sexual-misconduct?utm_source=rss&utm_medium=rss
+

@@ -1,0 +1,15 @@
+{
+  "next_id": 1,
+  "tasks": [
+    {
+      "id": 4,
+      "title": "Buy groceries",
+      "description": "Milk, eggs, bread",
+      "priority": "low",
+      "category": "personal",
+      "due_date": null,
+      "status": "completed",
+      "created_at": "2026-02-05T20:03:16.074390"
+    }
+  ]
+}
