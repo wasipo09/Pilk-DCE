@@ -2,6 +2,16 @@
 
 A comprehensive Python CLI tool for designing and optimizing discrete choice experiments (DCE) with support for multiple optimality criteria and Bayesian optimization.
 
+## WebUI Dashboard
+
+A Streamlit-powered UX resides in `pilk_dce/webui`. It bundles a multi-page dashboard (Home, Generator, Analyzer, Visualizer, Designer, Export), polished dark theme styling, and interactive charts (Altair/Plotly). Run the WebUI with:
+
+```bash
+streamlit run pilk_dce/webui/app.py
+```
+
+Visit `pilk_dce/webui/README.md` for deployment notes, screenshots, and a text-based walkthrough.
+
 ## Features
 
 - **D-optimal Design**: Minimize determinant of information matrix for optimal parameter estimation
