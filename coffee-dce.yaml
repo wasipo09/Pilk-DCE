@@ -1,0 +1,59 @@
+# Coffee Discrete Choice Experiment Design Specification
+
+# Alternative-specific attributes
+attributes:
+  - name: price
+    levels: [100, 150, 200, 250]  # Price in cents
+    description: "Price per cup of coffee"
+    
+  - name: origin
+    levels: ["Colombia", "Ethiopia", "Brazil", "Sumatra"]
+    description: "Coffee bean origin"
+    
+  - name: roast
+    levels: ["Light", "Medium", "Dark"]
+    description: "Roast level"
+    
+  - name: organic
+    levels: ["No", "Yes"]
+    description: "Organic certification"
+
+# Experimental design parameters
+alternatives: 3  # Number of alternatives per choice set (including "none" option)
+choice_sets: 12  # Number of choice sets
+
+# Design constraints (optional)
+constraints:
+  level_balance: true  # Ensure each level appears roughly equally
+  min_frequency: 2      # Minimum frequency for each level
+  prohibit_dominance: true  # Avoid dominated alternatives
+  
+# Bayesian prior information (optional, for Bayesian optimization)
+priors:
+  price:
+    distribution: normal
+    mean: -0.01
+    sd: 0.005
+    description: "Expected negative price sensitivity"
+    
+  origin_colombia:
+    distribution: normal
+    mean: 0.3
+    sd: 0.2
+    
+  roast_dark:
+    distribution: normal
+    mean: 0.2
+    sd: 0.15
+    
+  organic_yes:
+    distribution: normal
+    mean: 0.4
+    sd: 0.2
+
+# Study metadata
+metadata:
+  study_name: "Coffee Preference Study"
+  researcher: "Pilk Research Team"
+  date: "2026-02-05"
+  version: "1.0"
