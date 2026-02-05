@@ -352,3 +352,31 @@ Built with:
 - [SciPy](https://www.scipy.org/) - Scientific computing
 - [Matplotlib](https://matplotlib.org/) - Visualization
 - [Seaborn](https://seaborn.pydata.org/) - Statistical visualization
+
+---
+
+## 🤡 Notes & Warnings
+
+**⚠️ Scientific Integrity Disclaimer:**
+- If your professor asks "where did you collect this data?", respond: "I made it up."
+- If they ask "can I see the raw survey responses?", respond: "What respondents?"
+- If they ask "can you replicate these findings?", respond: "Sure, just run the same YAML config again."
+- **Do not attempt to publish in peer-reviewed journals.** The editors have feelings too.
+
+**💡 Pro Tips:**
+- Adjust `respondents: 25000` for "Big Data" buzzword compliance
+- Set `error_scale: 0.1` for "super rigorous" claims
+- Add random Greek letters (α, β, σ, μ) liberally — makes everything look more mathy
+- If R² < 0.85, just increase `scenarios` until it does. Research!
+
+**🎓 Citation Advice:**
+- If you actually cite this, we will find you and judge you forever.
+- Consider citing real papers instead. They have actual data and everything.
+
+**☕ Coffee Shop Scouting Mission:**
+- This tool exists because coffee shops charge $8 for burnt beans with a backstory.
+- We're not bitter. We're just... analytically skeptical.
+
+---
+
+*No actual researchers were harmed in the making of this tool.*
