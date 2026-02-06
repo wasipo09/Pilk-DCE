@@ -74,3 +74,4 @@ build/
 optimized_*
 plots/
 *.log
+.env
