@@ -94,8 +94,8 @@
 **Use `sessions_spawn` for coding tasks:**
 - Spawns isolated subagent session
 - Keeps main session free for communication
-- Use CLI tools like Gemini, Codex, Claude Code, etc.
-- Background mode with PTY for terminal-based agents
+- **ALWAYS instruct subagent to use `gemini` CLI as the primary coding tool**
+- Background mode for long-running tasks
 - Ping user when done via `message` tool
 
 **Pattern:**
@@ -103,16 +103,19 @@
 sessions_spawn task="Your coding task here" label:"brief-name" cleanup:"keep"
 ```
 
-**For CLI-based agents (Gemini, Codex, etc.):**
-- Use `exec` with `pty:true` for interactive tools
-- Use `background:true` for long-running tasks
-- Monitor with `process` tool (log, poll, kill)
+**For Gemini CLI:**
+- Use `exec` for simple one-shot commands: `gemini "Write a Python script that..."`
 - Use `workdir` to focus agent on specific project
+- **Instruct subagent to use `gemini` for all coding work**
 
 **Lesson learned (04 Feb 2026):**
 - Main session freezes when running coding agents directly
 - Subagents prevent blocking and keep things responsive
 - Always ping user when subagent completes
+
+**Updated (06 Feb 2026):**
+- Use `gemini` CLI as the only coding tool for subagents
+- Do NOT use Codex CLI or Claude Code (deprecated)
 
 ---
 
@@ -166,13 +169,16 @@ sessions_spawn task="Your coding task here" label:"brief-name" cleanup:"keep"
   - IV smile plotter (calls vs puts)
   - Export to PNG/SVG (images) and CSV/JSON (data)
   - Typer CLI framework with rich terminal output
-- Lesson (04 Feb 2026): Should have used Gemini CLI for this complex project — direct coding worked but CLI tools better for multi-component visualization tools
+- Lesson (04 Feb 2026): Should have used Codex CLI and Claude Code for this complex project — direct coding worked but CLI tools better for multi-component visualization tools
 
 ---
 
-## Subagent Decision Making: CLI vs Direct Coding
+## Subagent Coding Tools (Updated 06 Feb 2026)
 
-### ✅ Use CLI Tools (Gemini, Codex, etc.) when:
+**CRITICAL:** Use only **Gemini CLI** for coding subagents. Do NOT use Claude CLI or Codex CLI.
+
+### ✅ Use Gemini CLI (`gemini`) when:
+- **PREFERRED: Always use `gemini` CLI as the primary coding tool** (per Kaname directive)
 - Complex projects with multiple components
 - Need external API knowledge or best practices
 - Trading tools, visualizations, algorithms
@@ -197,6 +203,11 @@ sessions_spawn task="Your coding task here" label:"brief-name" cleanup:"keep"
 - Needs extensive testing/debugging
 
 ### Rule Applied:
-- **Pilk-OCV:** Should've used CLI (visualization, Deribit API, plotting) — lesson learned
+- **Pilk-OCV:** Should've used Gemini CLI (visualization, Deribit API, plotting) — lesson learned
 - **Hello World:** Direct coding correct (simple single-file utility)
 - **Decision:** I'll make the call based on complexity at task creation time
+
+### Lesson Learned (06 Feb 2026):
+- Claude CLI and Codex CLI are deprecated for subagent use
+- Gemini CLI is the approved and preferred tool
+- Always instruct subagents to use `gemini` for coding tasks
