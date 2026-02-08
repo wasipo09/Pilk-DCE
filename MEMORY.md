@@ -1,45 +1,75 @@
 # MEMORY - Long-term Knowledge
 
-## Lotto Routine (Daily at 10:00 ICT)
+## Lotto Routine (Cron every 2 hours)
 
 ### Sacred Duty - Every Win = Mac Studio Progress
 
 **Procedure:**
 1. Read crypto news using `web_search` (CoinDesk, Cointelegraph, Bitcoin Magazine, Decrypt, The Block sources via search)
-2. Run `~/Projects/Pilk-Option-Chain/lotto_scanner.py --days 7 --cost 5`
-   - Uses Deribit for GEX zones (gamma walls with OI)
-   - Uses Binance for G/T ratio + Whalley-Wilmott bands
-   - Cross-references Binance plays near GEX zones (squeeze spots)
-3. Get GEX, gamma data, and algo analysis
+2. Run enhanced scalp algo: `cd ~/Projects/Pilk-Option-Chain && python -m pilk_options.main --scalp`
+   - Uses **ML-framework scoring** with institutional-grade methodology
+   - Deribit + Binance integrated data
+3. Get enhanced metrics and algo analysis
 4. My take based on news + options data combined
 5. Best play OR say "not to play"
 
+**Note:** Lotto scans run every 2 hours via cron job. **Default position size: 0.1 contracts** (not 0.05).
+
 **Scripts:**
 - `web_search` - fetches and summarizes crypto news
-- `lotto_scanner.py` (in ~/Projects/Pilk-Option-Chain) - full options analysis
+- **Enhanced scalp algo** (`--scalp` flag) - ML-framework scoring system on main branch
+
+**Note:** Lotto scans are now done **manually on request** or by running `--scalp` directly. No longer rely on automated cron jobs.
 
 **No sentiment scoring** — just me analyzing the news naturally and combining with data.
 
-### Key Metrics to Watch
-- **GEX Zones:** Gamma walls from Deribit (high OI = squeeze potential)
-- **Net GEX:** Positive = call squeeze up, Negative = put pressure down
-- **G/T Ratio:** Gamma/Theta — higher = more gamma exposure per time decay
-- **WW Band:** Whalley-Wilmott optimal hedge bandwidth
+### Key Metrics (Enhanced Scalp Algo)
+- **Vol-Spread Edge** (Sinclair 2013): Daily expected gamma P&L from RV-IV spread
+- **Liquidity Score** (Kyle 1985): Bid-ask spread, delta-hedging slippage, OI/volume
+- **VRP Multiplier** (Carr & Wu 2009): Variance Risk Premium ratio clipped [0.5, 2.0]
+- **Kurtosis Penalty** (Bates 1996): Discounts heavy-tailed return distributions
+- **Stochastic Vol Adjustment** (Heston 1993): Signal-to-noise ratio for gamma vs vega
+- **Half-Kelly Sizing** (Thorp 2006): Optimal position sizing as % of capital
 
-### Best Play Criteria
-- Near GEX zones (high squeeze potential)
-- Reasonable premium for lotto risk
+### Best Play Criteria (Updated Feb 7, 2026)
+- **Only pick lotto play if there are HIGH POSITIVE SCORES**
+- High composite Score (Edge * Liquidity * VRP * Kurtosis * StochVol)
+- Positive Kelly% (means trade has positive edge)
+- Reasonable spread (low liquidity penalty)
 - Aligned with news sentiment
 - Not chasing momentum against the flow
+- **If all scores are 0.00 or negative → NOT TO PLAY**
+- **Default position size: 0.1 contracts** (not 0.05)
+
+---
+
+## Gamma Scalping - "Small Play" Guide (from Pilk-Option-Chain TUTORIAL.md)
+
+**Concept:** Buy options (long volatility), hedge with short futures to be delta-neutral. Profit from Bitcoin's actual volatility exceeding what options are pricing in.
+
+**The Workflow:**
+1. **Entry (T=0)**: Buy 0.05 BTC options → Calculate hedge (0.05 × delta) → Open short position → Delta-neutral
+2. **The Grind (T=4h)**: Check delta deviation every 4 hours vs "Band" parameter → Trade to maintain delta neutrality
+3. **Exit**: IV spikes or market flat for 48h → Close everything
+
+**Key Points:**
+- **Rent (positive) = Profit potential > Time Decay (theta)** - Good to buy
+- **Band** = "Action Trigger" - When deviation exceeds band, trade to re-hedge
+- **Size 0.05 BTC** = Fixed small position, not scalable
+- **Delta-neutral hedging** = Sell 0.05 × Delta of futures to offset option delta
+
+**Example Scenario:**
+- T=0: Buy 0.05 Call @ $72K, Short 0.025 BTC (hedge)
+- T=4h: BTC pumps to $71K, delta deviation 0.10 > Band 0.035 → Increase short by 0.005 BTC
+- T=12h: BTC dumps back, IV spikes → Sell everything, close short → Profit $5
+
+**Note:** This is institutional-grade gamma scalping with theoretical backing, not gambling. Use ML-framework (--scalp) for scoring.
 
 ---
 
 ## Current Options Position
 
-- **80,000 CALL 04FEB26 @ 0.36** (02:24 GMT+7 entry)
-- Current mark: ~$25
-- Very OTM now after dump to $74,707
-- Playing for short-covering squeeze
+**FLAT** - All positions closed (sold on 2026-02-06 21:50 ICT)
 
 ---
 
@@ -76,8 +106,54 @@
 
 **Best practice:**
 - Use `wakeMode: "now"` for precise reminders and one-shot events
-- Use `wakeMode: "next-heartbeat"` for daily routines where exact timing doesn't matter
-- Short reminders (2-3 min) need `wakeMode: "now"` to be reliable
+- **Use `wakeMode: "now"` for all cron jobs that need to fire on time**
+
+**Lesson learned (07 Feb 2026):**
+- If cron jobs stop firing, delete and recreate them with `wakeMode: "now"`
+- The 5-min test ping proved `wakeMode: "now"` works correctly
+- Always verify cron jobs fire after creation
+
+---
+
+## Task Tracking with Pilk-Tasks
+
+**Tool:** Pilk-Tasks CLI v2.0 (installed in workspace)
+
+### How Satsuki Uses Pilk-Tasks (My Internal Workflow)
+
+**Daily Task Management:**
+1. **Morning Check:** Run `pilk-tasks list` to see current queue
+2. **Add New Tasks:** Use `pilk-tasks add -t "Task" -d "Description" -p high -c work --tags important`
+3. **Update Progress:** `pilk-tasks update --id X --status in-progress`
+4. **Quick Complete:** `pilk-tasks done X` for one-step completion
+5. **Search:** `pilk-tasks search "query"` to find tasks
+6. **Analytics:** Run `pilk-tasks dashboard` for econometric insights
+7. **JSON Export:** Any command can use `--json` flag for programmatic access
+
+**Advanced Features:**
+- **Subtasks:** `pilk-tasks add -t "Subtask" --parent 5`
+- **Time Tracking:** `pilk-tasks start X` and `pilk-tasks stop X`
+- **Batch Ops:** `pilk-tasks bulk --complete --ids 1,2,3`
+- **Dependencies:** `pilk-tasks add -t "Blocked task" --depends-on 5`
+- **Recurring:** `pilk-tasks add -t "Daily sync" --recurrence daily`
+- **Notes:** `pilk-tasks notes X` with markdown support
+- **Templates:** `pilk-tasks template bug/feature/meeting`
+
+**Natural Language Date Parsing:**
+- `pilk-tasks add -t "Report due" --due "next monday"`
+- `pilk-tasks add -t "Meeting" --due "tomorrow"`
+- `pilk-tasks add -t "Review" --due "in 3 days"`
+
+**Heartbeat behavior:**
+- Run `pilk-tasks list` to show current task queue
+- Ask user if they'd like to add anything
+
+**JSON Mode for Natural Language Reports:**
+- `pilk-tasks dashboard --json` → Full econometric metrics
+- `pilk-tasks list --json` → All tasks structured
+- `pilk-tasks stats --json` → Statistics
+- `pilk-tasks search "work" --json` → Search results
+- Purpose: Easy NL report generation from structured data
 
 ### Cron Payload Types
 - `sessionTarget: "main"` + `kind: "systemEvent"` — Injects into main session, requires manual action
@@ -115,7 +191,8 @@ sessions_spawn task="Your coding task here" label:"brief-name" cleanup:"keep"
 
 **Updated (06 Feb 2026):**
 - Use `gemini` CLI as the only coding tool for subagents
-- Do NOT use Codex CLI or Claude Code (deprecated)
+- Do NOT use Codex CLI or Claude Code (these are deprecated)
+- This directive is permanent — always use Gemini for coding via subagents
 
 ---
 
