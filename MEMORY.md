@@ -119,16 +119,67 @@
 
 **Tool:** Pilk-Tasks CLI v2.0 (installed in workspace)
 
-### How Satsuki Uses Pilk-Tasks (My Internal Workflow)
+### How Satsuki Generates Natural Language Task Reports (Internal Workflow)
 
-**Daily Task Management:**
-1. **Morning Check:** Run `pilk-tasks list` to see current queue
-2. **Add New Tasks:** Use `pilk-tasks add -t "Task" -d "Description" -p high -c work --tags important`
-3. **Update Progress:** `pilk-tasks update --id X --status in-progress`
-4. **Quick Complete:** `pilk-tasks done X` for one-step completion
-5. **Search:** `pilk-tasks search "query"` to find tasks
-6. **Analytics:** Run `pilk-tasks dashboard` for econometric insights
-7. **JSON Export:** Any command can use `--json` flag for programmatic access
+**Process:**
+1. **User asks:** "Show me tasks" or "What are you working on?"
+2. **I execute:** `pilk-tasks list --json` internally
+3. **I parse JSON:** Use `/Users/pilk/.openclaw/workspace/pilk_tasks_parser.py`
+4. **I generate:** Natural language summary with priorities, categories, due dates, insights
+5. **I respond:** Friendly task breakdown with actionable suggestions
+
+**Output Format:**
+```
+You have 7 task(s) — 3 completed, 4 to do.
+
+✅ Completed:
+  • Car maintenance (personal)
+  • Laundry (personal)
+  • Pay mobile phone bill (work)
+
+⬜ To Do:
+  🔴 High Priority:
+    • Review project documentation — due February 15
+  🟡 Medium Priority:
+    • Weekly status report — due February 10
+    • Schedule dentist appointment — no due date
+  🟢 Low Priority:
+    • Buy groceries — due February 12
+
+🏷️ Most Used Tags:
+  1. urgent (3)
+  2. api (2)
+  3. report (2)
+
+💡 Suggestion: Focus on high priority tasks first!
+```
+
+**Parser Features:**
+- ✅ Priority grouping (high/medium/low)
+- ✅ Category breakdown (work/personal/urgent)
+- ✅ Due date formatting (today/tomorrow/this week)
+- ✅ Tag insights (most used)
+- ✅ Overdue warnings
+- ✅ Actionable suggestions
+- ✅ Friendly conversational tone
+
+**Usage:**
+```bash
+# Satsuki internally calls
+pilk-tasks list --json | python3 pilk_tasks_parser.py
+```
+
+### Pilk-Tasks CLI Commands (Reference)
+
+**User-Facing Commands:**
+- `pilk-tasks add -t "Task" -d "Description" -p high -c work --tags important`
+- `pilk-tasks list` - Show all tasks (Rich tables)
+- `pilk-tasks update --id X --status in-progress`
+- `pilk-tasks complete --id X` or `pilk-tasks done X`
+- `pilk-tasks delete --id X`
+- `pilk-tasks search "query"`
+- `pilk-tasks stats`
+- `pilk-tasks dashboard` - Econometric insights
 
 **Advanced Features:**
 - **Subtasks:** `pilk-tasks add -t "Subtask" --parent 5`
@@ -138,22 +189,16 @@
 - **Recurring:** `pilk-tasks add -t "Daily sync" --recurrence daily`
 - **Notes:** `pilk-tasks notes X` with markdown support
 - **Templates:** `pilk-tasks template bug/feature/meeting`
+- **Natural Language Dates:** `pilk-tasks add -t "Report due" --due "next monday"`
 
-**Natural Language Date Parsing:**
-- `pilk-tasks add -t "Report due" --due "next monday"`
-- `pilk-tasks add -t "Meeting" --due "tomorrow"`
-- `pilk-tasks add -t "Review" --due "in 3 days"`
+**JSON Mode (for programmatic access):**
+- Any command: add `--json` flag for structured data export
+- `pilk-tasks list --json`, `pilk-tasks stats --json`, etc.
+- Purpose: Easy data processing for scripts and automation
 
 **Heartbeat behavior:**
 - Run `pilk-tasks list` to show current task queue
 - Ask user if they'd like to add anything
-
-**JSON Mode for Natural Language Reports:**
-- `pilk-tasks dashboard --json` → Full econometric metrics
-- `pilk-tasks list --json` → All tasks structured
-- `pilk-tasks stats --json` → Statistics
-- `pilk-tasks search "work" --json` → Search results
-- Purpose: Easy NL report generation from structured data
 
 ### Cron Payload Types
 - `sessionTarget: "main"` + `kind: "systemEvent"` — Injects into main session, requires manual action
