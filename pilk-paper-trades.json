@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "trades": [
+    {
+      "id": 1,
+      "contract": "BTC-20260216-71000.0-C",
+      "contract_type": "CALL",
+      "strike": 71000.0,
+      "expiry": "2026-02-16",
+      "entry_price": 5.0,
+      "exit_price": null,
+      "size": 0.1,
+      "edge": 64.35,
+      "ml_score": 0.4,
+      "entry_time": "2026-02-14 23:56:00",
+      "exit_time": null,
+      "profit_loss": null,
+      "status": "OPEN",
+      "rationale": "BTC broke k resistance, bullish momentum confirmed",
+      "hedge_history": []
+    }
+  ],
+  "summary": {
+    "total_trades": 1,
+    "winning_trades": 0,
+    "losing_trades": 0,
+    "win_rate": 0.0,
+    "total_profit_loss": 0.0,
+    "avg_profit_loss": 0.0,
+    "max_profit": 0.0,
+    "max_loss": 0.0,
+    "current_positions": [
+      1
+    ]
+  }
+}
