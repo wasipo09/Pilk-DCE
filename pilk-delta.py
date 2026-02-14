@@ -757,4 +757,4 @@ def test_api_get():
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    test_api_get()
+    main()
