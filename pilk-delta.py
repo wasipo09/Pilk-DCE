@@ -733,8 +733,8 @@ def test_api_get():
     # Test 1: Simple request (backward compatible)
     try:
         data = api_get(
-            "https://www.deribit.com/api/v2/public/ticker",
-            {"instrument_name": "BTC-14FEB26-95000-C"}
+            "https://www.deribit.com/api/v2/public/get_ticker",
+            {"instrument_name": "BTC-PERPETUAL"}
         )
         print(f"✓ Deribit request successful: {data.get('result', {}).get('instrument_name', 'N/A')}")
     except APIError as e:
